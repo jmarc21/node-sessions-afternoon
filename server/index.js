@@ -18,14 +18,14 @@ app.use(session({
 }))
 app.use(checkForSession);
 
-app.use(express.static(`${__dirname}/build`));
+app.use(express.static(`${__dirname}/../build`));
 
-app.get('/api/swag', swag_controller.read );
+app.get('/api/swag', swag_controller.read);
 
-app.post('/api/login', auth_controller.login );
-app.post('/api/register', auth_controller.register );
-app.post('/api/signout', auth_controller.signout );
-app.get('/api/user', auth_controller.getUser );
+app.post('/api/login', auth_controller.login);
+app.post('/api/register', auth_controller.register);
+app.post('/api/signout', auth_controller.signout);
+app.get('/api/user', auth_controller.getUser);
 
 app.post('/api/cart', cart_controller.add);
 app.post('/api/cart/checkout', cart_controller.checkout);
@@ -34,7 +34,7 @@ app.delete('/api/cart', cart_controller.delete);
 app.get('/api/search', search_controller.search);
 
 
-const port = process.env.PORT;
-app.listen(port, ()=>{
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
     console.log(`listening on port: ${port}`)
 })

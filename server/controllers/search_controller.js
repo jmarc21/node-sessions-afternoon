@@ -5,6 +5,7 @@ module.exports = {
         const {category} = req.query;
         if(!category){
             res.status(200).send(swag);
+            next();
         }else{
             const filteredSwag = swag.filter(swag => swag.category === category);
             res.status(200).send(filteredSwag);
